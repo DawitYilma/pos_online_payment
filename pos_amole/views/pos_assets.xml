@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/pos_amole/static/src/css/amole_pos.css" id="pos-stylesheet"/>
+
+            <script type="text/javascript" src="/pos_amole/static/src/js/ProductScreen.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/AmoleSingleItem.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/AmoleItemContent.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/AmoleCategoryLine.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/AmoleEventLine.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/AmoleEventListScreen.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/AmolePadWidget.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/PaymentScreenPaymentLines.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/PaymentScreen.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/PaymentAmole.js"/>
+            <script type="text/javascript" src="/pos_amole/static/src/js/models.js"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AmoleEventLine" owl="1">
+        <tr t-attf-class="amole-line" t-att-data-id="props.events.ContentTypeID">
+            <td>
+                <t t-esc="props.events.Name" />
+            </td>
+            <td>
+                <t t-esc="props.events.ContentTypeID" />
+            </td>
+            <td>
+                <button class="event-button" t-on-click.stop="trigger('click-content-type', {selected: props.events})">Select</button>
+            </td>
+        </tr>
+    </t>
+
+</templates>

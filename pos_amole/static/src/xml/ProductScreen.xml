@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+     <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+       <xpath expr="//div[hasclass('leftpane')]" position="replace">
+           <div class="leftpane">
+                <t t-if="state.cashControl">
+                    <CashBoxOpening cashControl="state"/>
+                </t>
+                <t t-else="">
+                    <OrderWidget/>
+                        <div class="pads">
+                        <div class="control-buttons">
+                            <t t-foreach="controlButtons" t-as="cb" t-key="cb.name">
+                                <t t-component="cb.component" t-key="cb.name" />
+                            </t>
+                        </div>
+                        <div class="control-buttons">
+                            <AmolePadWidget/>
+                        </div>
+                        <div class="subpads">
+                            <ActionpadWidget client="client"/>
+                            <NumpadWidget activeMode="state.numpadMode" />
+                        </div>
+                    </div>
+                        <t t-if="env.isMobile">
+                        <MobileOrderWidget pane="mobile_pane" t-on-switchpane="switchPane"/>
+                    </t>
+                </t>
+           </div>
+       </xpath>
+     </t>
+</templates>

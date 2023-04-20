@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AmoleCategoryLine" owl="1">
+        <tr t-attf-class="amole-line" t-att-data-id="props.events.CategoryID">
+            <td>
+                <t t-esc="props.events.Name" />
+            </td>
+            <td>
+                <t t-esc="props.events.Location" />
+            </td>
+            <td>
+                <t t-esc="props.events.EventBegin" />
+            </td>
+            <td>
+                <t t-esc="props.events.EventEnd" />
+            </td>
+            <td>
+                <button class="event-button" t-on-click.stop="trigger('click-category-line', {selected: props.events})">Select</button>
+            </td>
+        </tr>
+    </t>
+
+</templates>

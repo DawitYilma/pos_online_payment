@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="pos_online_payment_form_view" model="ir.ui.view">
+        <field name="name">pos.online.payment.form.view</field>
+        <field name="model">pos.online.payment</field>
+        <field name="arch" type="xml">
+             <form string="POS Online Payment">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="pos_config"/>
+                            <field name="pay_method"/>
+                            <field name="payer_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="pos_online_payment_tree_view" model="ir.ui.view">
+        <field name="name">pos.online.payment.tree.view</field>
+        <field name="model">pos.online.payment</field>
+        <field name="arch" type="xml">
+            <tree string="POS Online Payment">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="price"/>
+                <field name="pos_config"/>
+                <field name="pay_method"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pos_online_payment_action" model="ir.actions.act_window">
+            <field name="name">Pos Online Payment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.online.payment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to Create New POS Online Payment.
+                </p>
+            </field>
+    </record>
+
+    <menuitem id="menu_pos_online_payment_customer"
+        name="POS Online Payment"
+        parent="point_of_sale.menu_point_of_sale"
+        action="pos_online_payment_action"
+        sequence="100"/>
+
+</odoo>
+
+
+
+

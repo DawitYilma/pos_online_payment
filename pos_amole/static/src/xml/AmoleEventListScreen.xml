@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AmoleEventListScreen" owl="1">
+        <div class="amoleventlist-screen screen">
+            <div class="screen-content">
+                <div class="top-content">
+                    <t t-if="['new', 'ussd_retry', 'otp', 'ussd', 'otp_retry'].includes(state.status)">
+                        <div class="button back" t-on-click="back">
+                            <t t-if="!env.isMobile">Discard</t>
+                            <t t-else="">
+                                <i class="fa fa-undo"></i>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-if="['new', 'ussd_retry', 'otp', 'ussd', 'otp_retry'].includes(state.status)">
+                        <div class="button back" t-on-click="back_back">
+                            <t t-if="!env.isMobile">Back</t>
+                            <t t-else="">
+                                <i class="fa fa-undo"></i>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-if="state.ItemModeProps.event and ['done'].includes(state.status)">
+                        <div class="button next highlight top-content-right" style="float: right;"
+                              t-on-click="closeAmole">
+                            <span class="next_text">Confirm</span>
+                            <i class="fa fa-angle-double-right fa-fw"></i>
+                        </div>
+                    </t>
+                </div>
+                <section class="full-content">
+                    <div class="client-window">
+                        <section class="subwindow list">
+                            <div class="subwindow-container">
+                                <div t-if="state.contentTypeShown" class="subwindow-container-fix scrollable-y">
+                                    <div class="event-header">
+                                        <h2>Content Type</h2>
+                                    </div>
+
+                                    <table class="event-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Content Type ID</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="amole-list-contents">
+                                            <t t-foreach="amole_content_type" t-as="events"
+                                               t-if="events"
+                                               t-key="events.ContentTypeID">
+                                                <AmoleEventLine
+                                                            events="events"
+                                                            contentTypeShown="state.contentTypeShown"/>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="subwindow list">
+                            <div class="subwindow-container collapsed">
+                                <div t-if="state.contentCategoryShown" class="subwindow-container-fix scrollable-y">
+                                    <div class="event-header">
+                                        <h2>Content Category</h2>
+                                    </div>
+
+                                    <table class="event-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Location</th>
+                                                <th>Event Begin</th>
+                                                <th>Event End</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="amole-list-contents">
+                                            <t t-foreach="amole_category" t-as="events"
+                                               t-if="events"
+                                               t-key="events.CategoryID">
+                                                <AmoleCategoryLine
+                                                            events="events"
+                                                            contentCategoryShown="state.contentCategoryShown"/>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="subwindow list">
+                            <div class="subwindow-container collapsed">
+                                <div t-if="state.contentItemsShown" class="subwindow-container-fix scrollable-y">
+                                    <div class="event-header">
+                                        <h2>Content Items</h2>
+                                    </div>
+
+                                    <table class="event-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Item ID</th>
+                                                <th>Price</th>
+                                                <th>QR Code</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="amole-list-contents">
+                                            <t t-foreach="amole_items" t-as="events"
+                                               t-if="events"
+                                               t-key="events.ItemID">
+                                                <AmoleItemContent
+                                                            events="events"
+                                                            contentItemsShown="state.contentItemsShown"/>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="subwindow collapsed">
+                            <div class="subwindow-container collapsed">
+                                <div t-if="state.contentItemShown" class="client-details-contents subwindow-container-fix">
+                                    <AmoleSingleItem t-props="state"/>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+</templates>

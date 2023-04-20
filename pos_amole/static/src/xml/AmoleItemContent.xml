@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AmoleItemContent" owl="1">
+        <tr t-attf-class="amole-line" t-att-data-id="props.events.ItemID">
+            <td>
+                <t t-esc="props.events.Name" />
+            </td>
+            <td>
+                <t t-esc="props.events.ItemID" />
+            </td>
+            <td>
+                <t t-esc="props.events.ItemPrice" />
+            </td>
+            <td>
+                <t t-esc="props.events.QRCode" />
+            </td>
+            <td>
+                <button class="event-button" t-on-click.stop="trigger('click-single-item', {selected: props.events})">Select</button>
+            </td>
+        </tr>
+    </t>
+
+</templates>

@@ -1,0 +1,162 @@
+.pos .amoleventlist-screen .window,
+.pos .amoleventlist-screen .full-content .subwindow{
+    display: block;
+}
+.pos .amoleventlist-screen .full-content .subwindow-container{
+    display: block;
+    height: 100%;
+}
+
+.pos .amoleventlist-screen .full-content .subwindow.collapsed,
+.pos .amoleventlist-screen .full-content .subwindow-container.collapsed{
+    height: auto;
+}
+
+.pos .amoleventlist-screen .full-content{
+    overflow: auto;
+}
+.pos .amoleventlist-screen .event-header{
+    text-align: center;
+}
+.pos .amoleventlist-screen .event-list{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    width: 70%;
+}
+
+.pos .amoleventlist-screen .event-list th,
+.pos .amoleventlist-screen .event-list td {
+    padding: 12px 8px;
+}
+.pos .amoleventlist-screen .event-list tr{
+    transition: all 150ms linear;
+    background: rgb(230,230,230);
+}
+.pos .amoleventlist-screen .event-list thead > tr,
+.pos .amoleventlist-screen .event-list tr:nth-child(even) {
+    background: rgb(247,247,247);
+}
+
+.pos .amole-line {
+    vertical-align: text-top;
+}
+
+.pos .amoleventlist-screen .amole-details{
+    padding: 16px;
+    border-bottom: solid 5px rgb(110,200,155);
+}
+
+.pos .amoleventlist-screen .amole-name {
+    font-size: 32px;
+    line-height: 64px;
+    margin-bottom:16px;
+}
+
+.pos .amoleventlist-screen .payment-name {
+    font-size: 25px;
+    line-height: 48px;
+    margin-bottom:7px;
+}
+
+.pos .amoleventlist-screen .amole-details-box{
+    position: relative;
+    font-size: 16px;
+}
+.pos .amoleventlist-screen .amole-details-pay{
+    width: 50%;
+    float: left;
+    padding: 30px;
+}
+.pos .amoleventlist-screen .amole-details-left{
+    width: 50%;
+    float: left;
+}
+.pos .amoleventlist-screen .amole-details-right{
+    width: 50%;
+    float: right;
+}
+.pos .amoleventlist-screen .amole-detail{
+    line-height: 24px;
+}
+.pos .amoleventlist-screen .amole-detail > .label{
+    font-weight: bold;
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    margin-right: 8px;
+}
+
+/* BUTTON */
+.pos .button-top {
+  vertical-align: top;
+}
+.pos .event-button {
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+}
+
+.pos .event-button:hover,
+.pos .event-button:focus {
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.pos .event-button:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.pos .event-button:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
+.pos .form-inline {
+    width: 70%;
+}
+.pos .form-inline .send-button {
+  background-color: dodgerblue;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  text-align: center;
+  margin-left: -100px;
+  float: right;
+  width: 20%;
+  height: 50px;
+  box-shadow: none;
+  outline: none;
+  font-family: 'Lato';
+  cursor: pointer;
+}
+.pos .actionpad .set-amole-event {
+  font-size: 18px;
+}
+.screen .top-content .top-content-right {
+    float: right;
+}

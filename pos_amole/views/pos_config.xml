@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_inherit_pos_amole" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.amole</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@name='order']" position="before">
+                <h2>Amole Event</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="amole_event" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="amole_event" />
+                            <div class="text-muted">
+                                Add amole event/service to make payment from pos.
+                            </div>
+                            <div class="content-group mt16 row" attrs="{'invisible': [('amole_event', '=', False)], 'required': [('amole_event', '=', True)]}">
+                                <label for="api_key" string="API KEY" class="col-lg-3 o_light_label"/>
+                                <field name="api_key"/>
+                                <label for="app_id" string="APP ID" class="col-lg-3 o_light_label"/>
+                                <field name="app_id"/>
+                                <label for="amole_url" string="Amole URL" class="col-lg-3 o_light_label"/>
+                                <field name="amole_url"/>
+                                <label for="ussd_url" string="USSD URL" class="col-lg-3 o_light_label"/>
+                                <field name="ussd_url"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane" attrs="{'invisible': [('amole_event', '=', False)], 'required': [('amole_event', '=', True)]}">
+                            <div class="text-muted">
+                                Content URL Required to fetch all the events/services in Amole
+                            </div>
+                            <div class="content-group mt16 row">
+                                <label for="content_types" string="Content Types URL" class="col-lg-3 o_light_label"/>
+                                <field name="content_types"/>
+                                <label for="content_category" string="Content Category URL" class="col-lg-3 o_light_label"/>
+                                <field name="content_category"/>
+                                <label for="content_items" string="Content Items URL" class="col-lg-3 o_light_label"/>
+                                <field name="content_items"/>
+                                <label for="content_item" string="Content Item URL" class="col-lg-3 o_light_label"/>
+                                <field name="content_item"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

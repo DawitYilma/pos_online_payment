@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="AmolePadWidget" owl="1">
+        <div class="actionpad">
+            <t t-if="env.pos.config.amole_event">
+                <button class="button set-amole-event" t-on-click="trigger('click-amole')">
+                    <t t-if="!env.isMobile"><i class="fa fa-ticket" role="img" aria-label="Amole Event" title="Amole Event" /></t>
+                    <t>
+                        Amole Event
+                    </t>
+                </button>
+            </t>
+        </div>
+    </t>
+</templates>

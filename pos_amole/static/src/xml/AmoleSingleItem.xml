@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AmoleSingleItem" owl="1">
+        <section class="amole-details edit">
+            <div class="amole-name">
+                <t t-esc="props.ItemModeProps.event.ItemName" />
+            </div>
+            <div class="amole-details-box clearfix">
+                <div class="amole-details-left">
+                    <div class="amole-detail">
+                        <span class="label">Category</span>
+                        <t t-esc="props.ItemModeProps.event.Category" />
+                    </div>
+                    <div class="amole-detail">
+                        <span class="label">Location</span>
+                        <t t-esc="props.ItemModeProps.event.Location" />
+                    </div>
+                    <div class="amole-detail">
+                        <span class="label">Event Date</span>
+                        <t t-esc="props.ItemModeProps.event.EventDate" />
+                    </div>
+                </div>
+                <div class="amole-details-right">
+                    <div class="amole-detail">
+                        <span class="label">Item ID</span>
+                        <t t-esc="props.ItemModeProps.event.ItemID" />
+                    </div>
+                    <div class="amole-detail">
+                        <span class="label">Unit Price</span>
+                        <t t-esc="props.ItemModeProps.event.UnitPrice" />
+                    </div>
+                    <div class="amole-detail">
+                        <span class="label">Total Price</span>
+                        <t t-esc="props.ItemModeProps.event.TotalPrice" />
+                    </div>
+                </div>
+                <br/><br/><br/><br/>
+                <div class="payment-name">
+                    <span>Make Payment</span>
+                </div>
+                <div class="amole-details-pay">
+                    <div class="form-inline">
+                        <t t-if="props.ItemModeProps.event and ['ussd'].includes(props.status)">
+                            <div class="send-button" title="Send USSD Request" t-on-click="trigger('send-ussd-request')">
+                                    <p style="text-align: center">Send</p>
+                            </div>
+                        </t>
+                        <t t-if="props.ItemModeProps.event and ['ussd_retry'].includes(props.status)">
+                            <div class="send-button" title="Send USSD Request" t-on-click="trigger('send-ussd-request')">
+                                    <p style="text-align: center">Retry</p>
+                            </div>
+                        </t>
+                        <t t-if="props.ItemModeProps.event and ['ussd_wait'].includes(props.status)">
+                            <div class="send-button" title="Send USSD Request" t-on-click="trigger('send-ussd-request')">
+                                    <p style="text-align: center">Waiting</p>
+                            </div>
+                        </t>
+                        <t>
+                            <div class="amole-detail">
+                                <input
+                                    type="tel"
+                                    style="width: 75%;height: 45px;"
+                                    class="detail amole-phone"
+                                    placeholder="Phone Number - Eg...0911111111"
+                                    t-on-keyup="updatePhoneNumber"
+                                />
+                            </div>
+                        </t>
+                    </div>
+                    <br/><br/>
+                    <div class="form-inline">
+                        <t t-if="props.ItemModeProps.event and ['otp'].includes(props.status)">
+                            <div class="send-button" title="Send Payment Request" t-on-click="trigger('send-payment-request', line)">
+                                    <p style="text-align: center">Send</p>
+                            </div>
+                        </t>
+                        <t t-if="props.ItemModeProps.event and ['otp_retry'].includes(props.status)">
+                            <div class="send-button" title="Send Payment Request" t-on-click="trigger('send-payment-request', line)">
+                                    <p style="text-align: center">Retry</p>
+                            </div>
+                        </t>
+                        <t t-if="props.ItemModeProps.event and ['otp_wait'].includes(props.status)">
+                            <div class="send-button" title="Send Payment Request" t-on-click="trigger('send-payment-request', line)">
+                                    <p style="text-align: center">Waiting</p>
+                            </div>
+                        </t>
+                        <t>
+                            <div class="amole-detail">
+                                <input
+                                        style="width: 75%; height: 45px"
+                                        placeholder="Ussd Response"
+                                        t-on-keyup="fetchUssdIp"
+                                />
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+
+</templates>
