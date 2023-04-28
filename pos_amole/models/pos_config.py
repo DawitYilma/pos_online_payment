@@ -33,7 +33,6 @@ class PosConfig(models.Model):
                 'longMsg': 'Connection To Amole Failed',
             }
         lod_json = json.loads(response.text)
-        print(lod_json, 'LOS')
         if lod_json['result']['msg'] == 'failed!':
             return {
                 'response': response,
@@ -152,7 +151,6 @@ class PosConfig(models.Model):
         headers = {'Content-Type': 'application/json'}
         data['apiKey'] = self.api_key
         data['payerId'] = self.app_id
-        print(data)
         try:
             response = requests.post(self.content_types, json=data, headers=headers)
         except:
@@ -161,7 +159,6 @@ class PosConfig(models.Model):
                 'longMsg': "Couldn't Connnect With Amole"
             }
         lod_json = json.loads(response.text)
-        print(lod_json, 'LOD')
         con_json = json.loads(lod_json['result']['data'])
         if lod_json['result']['msg'] == 'failed!':
             return {
